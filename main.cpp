@@ -1,8 +1,3 @@
-//2019
-//98-99
-//Authour:Niloufar Asghari
-//codeforces 1260A Diffrent Approach
-
 #include <bits/stdc++.h>
 
 #define rep(i,a,n)  for(long long i=a;i<n;++i)
@@ -59,36 +54,63 @@ string st[200];
 char ch;
 ll zzz=10000;
 
+ll a,b;
+
+bool isround(ll q)
+{
+    ll u=q;
+    ll uu=0;
+    ll temp=1;
+    while(q)
+    {
+        uu=q%10;
+        q/=10;
+        temp*=10;
+    }
+    if(u/temp==uu)
+        return true;
+    else
+        return false;
+}
+
+
 int main()
 {
-    ll z,b;
+    ll u=0;
+    ll q;
+
     cin>>t;
     while(t--)
     {
-        sum=0;
-        v.clear();
-        cin>>z>>b;
-        rep(i,0,z)
-        v.pb(0);
-
-        ll u=z;
-        ll i=0;
-        while(b)
+        ll temp=1;
+        cin>>q;
+        if(q<=10 or isround(q))
             {
-
-               v[i]++;
-                b--;
-               i++;
-               u--;
-               if(u==0)
-               {
-                   i=0;
-                   u=z;
-               }
+                cout<<1<<endl;
+                cout<<q<<endl;
             }
-            rep(i,0,z)
-            sum+=pow(v[i],2);
-        cout<<sum<<endl;
+        else
+        {
+            while(q)
+            {
+                ll qq=q%10;
+                if(qq!=0)
+                v.pb(qq*temp);
+
+//                cout<<(q%10)*temp<<" ";
+//                cout<<"temp is   "<<temp<<endl;
+                temp*=10;
+                q/=10;
+            }
+            cout<<v.size()<<endl;
+            rep(i,0,v.size())
+            cout<<v[i]<<" ";
+            cout<<endl;
+            v.clear();
+
+        }
     }
+
+
     return 0;
 }
