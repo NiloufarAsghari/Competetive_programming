@@ -3,6 +3,7 @@
 //Authour:Niloufar Asghari
 //codeforces 1260A Diffrent Approach
 
+
 #include <bits/stdc++.h>
 
 #define rep(i,a,n)  for(long long i=a;i<n;++i)
